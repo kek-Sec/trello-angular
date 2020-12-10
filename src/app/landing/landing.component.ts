@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrelloService } from '../trello.service';
 
 @Component({
   selector: 'app-landing',
@@ -7,15 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  news_items:JSON;
+  CARDS:JSON;
   Titles:Array<String> = new Array<String>(10);
   Images:Array<String> = new Array<String>(10);
   Text:Array<String> = new Array<String>(10);
   URLS:Array<String>= new Array<String>(10);
 
-  constructor() { }
+  constructor(private trelloService:TrelloService) { }
 
   ngOnInit(): void {
+    this.getQuotes();
+  }
+
+  getQuotes()
+  {
+    this.trelloService.getCards().subscribe(data => {
+      this.CARDS = data;
+      console.log(data);
+    })
   }
 
 }

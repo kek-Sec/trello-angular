@@ -11,9 +11,7 @@ export class TrelloService {
 
   getCards(): Observable<JSON> {
     const url = `https://api.trello.com/1/lists/5fd2a994b357a23260e2b83c/cards?key=90ec957c4e8cdf8ace5677a945ff1d21&token=85d4cc5d590944feb7cb2d79327514a74e110fefa5bbddbb7d25348c848a7c79`;
-    return this.http
-      .get<JSON>(url)
-      .pipe(tap((_) => console.log(`got cards!`)));
+    return this.http.get<JSON>(url).pipe(tap((_) => console.log(`got cards!`)));
   }
 
   addCard(Author, Quote, Image_url): Observable<JSON> {
@@ -29,8 +27,13 @@ export class TrelloService {
       .post<JSON>(url, null)
       .pipe(tap((_) => console.log('posted card!')));
   }
-  getAttachment(card_id,attachment_id): Observable<JSON> {
-    const url = "https://api.trello.com/1/cards/"+ card_id +"/attachments/"+ attachment_id + "/?key=90ec957c4e8cdf8ace5677a945ff1d21&token=85d4cc5d590944feb7cb2d79327514a74e110fefa5bbddbb7d25348c848a7c79`;
+  getAttachment(card_id, attachment_id): Observable<JSON> {
+    const url =
+      'https://api.trello.com/1/cards/' +
+      card_id +
+      '/attachments/' +
+      attachment_id +
+      '/?key=90ec957c4e8cdf8ace5677a945ff1d21&token=85d4cc5d590944feb7cb2d79327514a74e110fefa5bbddbb7d25348c848a7c79';
     return this.http
       .get<JSON>(url)
       .pipe(tap((_) => console.log(`got attachment!`)));
