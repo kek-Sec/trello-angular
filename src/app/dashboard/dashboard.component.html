@@ -1,1 +1,27 @@
-<p>dashboard works!</p>
+<button type="button" class="btn btn-success btn-lg">Add +</button>
+
+<div class="container">
+  <div class="row">
+    <div *ngFor="let item of Titles; let i = index">
+      <div *ngIf="Titles[i]">
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-image">
+              <img class="img-responsive" src="{{Images[i]}}" />
+              <span class="card-title">{{Titles[i]}}</span>
+            </div>
+
+            <div class="card-content">
+                <h2>{{Text[i]}}</h2>
+            </div>
+
+            <div class="card-action">
+                <button type="button" (click)="delete(ID[i])" class="btn btn-danger">Delete</button>
+                <button type="button" (click)="edit(ID[i])" class="btn btn-warning">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
