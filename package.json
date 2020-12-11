@@ -24,11 +24,12 @@
     "@angular/router": "~10.1.0",
     "@ng-bootstrap/ng-bootstrap": "^8.0.0",
     "bootstrap": "^4.5.3",
+    "express": "^4.17.1",
     "rxjs": "~6.6.0",
     "sweetalert2": "^10.12.4",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2",
-    "typescript": "~4.0.2"
+    "typescript": "~4.0.2",
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.0",
