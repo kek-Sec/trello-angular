@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-success btn-lg">Add +</button>
+<button type="button" (click)="add_modal(add)" class="btn btn-success btn-lg">Add +</button>
 
 <div class="container">
   <div class="row">
@@ -17,7 +17,7 @@
 
             <div class="card-action">
                 <button type="button" (click)="delete(ID[i])" class="btn btn-danger">Delete</button>
-                <button type="button" (click)="edit(ID[i])" class="btn btn-warning">Edit</button>
+                <button type="button" (click)="edit_quote(edit,ID[i])" class="btn btn-warning">Edit</button>
             </div>
           </div>
         </div>
@@ -25,3 +25,66 @@
     </div>
   </div>
 </div>
+
+<ng-template #edit let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Quote update</h4>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="aFormGroup">
+        <div class="form-group">
+          <label for="author">Author</label>
+          <div class="input-group">
+            <input #author formControlName="author" class="form-control" type="text" placeholder="Author name">
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="dateOfBirth">Quote</label>
+            <div class="input-group">
+              <input #quote formControlName="quote" class="form-control" type="text" placeholder="Quote">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dateOfBirth">Image url</label>
+            <div class="input-group">
+              <input #image_url formControlName="image_url" class="form-control" type="text" placeholder="url">
+            </div>
+          </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="update(); modal.close()">Save</button>
+    </div>
+  </ng-template>
+
+
+<ng-template #add let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Quote Add</h4>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="bFormGroup">
+        <div class="form-group">
+          <label for="author">Author</label>
+          <div class="input-group">
+            <input #author formControlName="author" class="form-control" type="text" placeholder="Author name">
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="dateOfBirth">Quote</label>
+            <div class="input-group">
+              <input #quote formControlName="quote" class="form-control" type="text" placeholder="Quote">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dateOfBirth">Image url</label>
+            <div class="input-group">
+              <input #image_url formControlName="image_url" class="form-control" type="text" placeholder="url">
+            </div>
+          </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="add_card(); modal.close()">Save</button>
+    </div>
+  </ng-template>
